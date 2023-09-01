@@ -1,7 +1,7 @@
 services:
   app:
     image: ${IMAGE}
-    platform: ${DOCKER_DEFAULT_PLATFORM}
+      #platform: ${DOCKER_DEFAULT_PLATFORM}
     pull_policy: "missing"
     init: true
     volumes:
@@ -15,5 +15,5 @@ services:
       - "4141:3000"
   redis:
     image: redis:6
-    platform: ${DOCKER_DEFAULT_PLATFORM}
+      #platform: ${DOCKER_DEFAULT_PLATFORM}
     pull_policy: "missing"
