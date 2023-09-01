@@ -17,7 +17,7 @@ class TheOnlyTest < Minitest::Test
     REDIS.sadd("messages", "Message 1")
     REDIS.sadd("messages", "Message 2")
     visit "/"
-    assert page.has_content?("Cat Say")
+    assert page.has_content?("CatSay")
     assert page.has_selector?(".dn[data-testid='stairs']")
     assert page.has_selector?(".dn[data-testid='piano']")
     assert page.has_content?("Message 1")

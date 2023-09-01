@@ -4,8 +4,8 @@
   </head>
   <body class="ff-sans">
     <header class="pa-3 bg-black white">
-      <h1 class="f-5">Cat Say</h1>
-      <h2 class="f-4">The Website That Makes Cats Say Things</h2>
+      <h1 class="f-6 ma-0 ff-fantasy mv-1">CatSay</h1>
+      <h2 class="f-5 ma-0 ff-fantasy mv-1">The Website That Makes Cats Say Things</h2>
     </header>
     <main class="w-50">
       <section data-testid="stairs" class="<%= @pic == 'stairs' ? 'db' : 'dn' %> pos-relative" style="width: 500px">
@@ -35,40 +35,59 @@
           </div>
         <img src="/images/box.jpg" class="w-100 mw-100">
       </section>
-      <form action="/" method="POST" class="pa-3">
-        <div class="flex items-start justify-start">
-        <label class="db pv-2" for="zoni-message">
-          <span class="db mt-2 mb-1">What should Zoni say?</span>
-          <input id="zoni-message" value="<%= @zoni_message %>" type="text" name="zoni-message" class="db bg-gray-lightest pa-2 f-3 lh-copy ba bc-gray br-1">
+      <form action="/" method="POST" class="pv-3">
+        <label class="pv-2 flex items-center" for="zoni-message">
+          <div class="w-10">
+          <img src="/images/zoni.png" class="h-6">
+          </div>
+          <span class="w-30 db mt-2 mb-1 ws-nowrap mr-2">What should Zoni say?</span>
+          <div>
+            <input id="zoni-message" value="<%= @zoni_message %>" type="text" name="zoni-message" class="ff-fantasy w-auto db bg-gray-lightest pa-2 f-3 lh-copy ba bc-gray br-1">
+            <% if @ideas.length > 0 %>
+              <div>
+                How about “<span class="f-4 ff-fantasy"><%= @ideas[0] %></span>”
+              </div>
+            <% end %>
+          </div>
         </label>
-        <label class="db pv-2 ml-2" for="carlos-message">
-          <span class="db mt-2 mb-1">What should Carlos Rosario say?</span>
-          <input id="carlos-message" value="<%= @carlos_message %>" type="text" name="carlos-message" class="db bg-gray-lightest pa-2 f-3 lh-copy ba bc-gray br-1">
+        <label class="pv-2 flex items-center" for="carlos-message">
+          <div class="w-10">
+            <img src="/images/carlos.png" class="h-6">
+          </div>
+          <span class="db w-30 mt-2 mb-1 ws-nowrap mr-2">What should Carlos Rosario say?</span>
+          <div>
+            <input id="carlos-message" value="<%= @carlos_message %>" type="text" name="carlos-message" class="ff-fantasy w-auto db bg-gray-lightest pa-2 f-3 lh-copy ba bc-gray br-1">
+            <% if @ideas.length > 1 %>
+              <div>
+                How about “<span class="f-3 ff-fantasy"><%= @ideas[1] %></span>”
+              </div>
+            <% end %>
+          </div>
         </label>
         </div>
-        <% if @ideas.length > 1 %>
-          <div class="ba pa-3 br-2 bg-gray-darkest gray-lightest">
-            <span class="f-3 fw-bold">What about?</span>
-            <div class="ml-4 mv-2">
-              “<span class="i"><%= @ideas[0] %></span>” or “<span class="i"><%= @ideas[1] %></span>”
-            </div>
-            Or try a <a title="Show Random Image" class="white hover-blue-light" href="/random">random one</a>!
-          </div>
-        <% end %>
-        <label class="db pv-2" for="where">
-          <span class="db mt-2 mb-1">
-          Where should they be?
+        <label class="db pv-2 flex items-center" for="where">
+          <div class="w-10">&nbsp;</div>
+          <span class="db mt-2 mb-1 mr-2 ws-nowrap w-30">
+            Where should they be?
           </span>
-        <select id="where" name="where" class="pa-2 f-3 ba bc-gray bg-gray-lightest br-1 w-auto">
-          <option>--Select Where--</option>
-          <option <%= @pic == "box" ? "selected" : "" %> value="box">In an box together</option>
-          <option <%= @pic == "piano" ? "selected" : "" %> value="piano">On the piano</option>
-          <option <%= @pic == "stairs" ? "selected" : "" %> value="stairs">As kittens on the stairs</option>
-        </select>
+          <select id="where" name="where" class="pa-2 f-3 ba bc-gray bg-gray-lightest br-1 w-auto ff-fantasy">
+            <option>--Select Where--</option>
+            <option <%= @pic == "box" ? "selected" : "" %> value="box">In an box together</option>
+            <option <%= @pic == "piano" ? "selected" : "" %> value="piano">On the piano</option>
+            <option <%= @pic == "stairs" ? "selected" : "" %> value="stairs">As kittens on the stairs</option>
+          </select>
         </label>
-        <button class="db w-100 ph-4 pv-3 ba br-4 bg-black white fw-bold tc f-4 mt-3">
-          Command My Cats!
-        </button>
+        <div class="flex items-center mt-3">
+          <div class="w-40 mr-2">&nbsp;</div>
+          <div class="flex flex-column">
+            <button class="dib ph-4 pv-3 ba br-4 bg-black white fw-bold tc f-3 ws-nowrap">
+              Command My Cats!
+            </button>
+            <% if @ideas.length > 1 %>
+              <a title="Show Random Image" class="mt-3 ba tdn tc br-4 bg-white black ph-4 pv-3 f-2 fw-bold ws-nowrap" href="/random">Or try a random one!</a>
+            <% end %>
+          </div>
+        </div>
       </form>
     </main>
   </body>

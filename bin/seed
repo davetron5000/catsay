@@ -22,6 +22,8 @@ puts ENV["REDIS_URL"]
     "It's playtime - where's my container?",
     "Boxes are the best containers",
     "Base images?",
+    "I found the latest image under the couch",
+    "I'd rather be sleep(5)",
   ].each do |message|
     REDIS.sadd("messages",message)
   end
