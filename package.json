@@ -2,7 +2,7 @@
   "name": "catsay",
   "version": "1.0.0",
   "devDependencies": {
-    "esbuild": "^0.19.2",
+    "esbuild": "^0.25.8",
     "melange-css": "^1.0.0-alpha7"
   },
   "dependencies": {
